@@ -67,6 +67,9 @@ public class UserDaoCrudTests {
         // 2. 验证保存结果
         User savedUser = userDao.findById(user.getUserId());
         Assert.assertEquals("华泰", savedUser.getUserName());
+        //验证删除功能
+        int res = userDao.deleteUser(user.getUserId());
+        assert res == 1;
     }
 
     @Test
@@ -112,7 +115,7 @@ public class UserDaoCrudTests {
     @Test
     public void testCount() {
         int res = userDao.count();
-        assert res == 8;
+        assert res == 14;
     }
 
     @Test
